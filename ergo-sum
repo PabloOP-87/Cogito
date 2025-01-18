@@ -1,3 +1,9 @@
+--[[
+the script wont be free again, join the discord server if you want buy it and dont spam or ping owners asking for free version
+im so sorry hiraeth for skidding your whole code and post on youtube, anyways, nobody have it anymore, i did not share it when i had the open source script
+idc if you think I'm dumb for deleting the script just bc the creator asked for, I hate skidders and I won't be one of those
+]]--
+
 setclipboard("discord.gg/8zSkBgQ96V")
 game:GetService("StarterGui"):SetCore("SendNotification",{
     Title = "notification";
@@ -5,4 +11,4 @@ game:GetService("StarterGui"):SetCore("SendNotification",{
     Duration = 3;
 })
 wait(4)
-game.Players.LocalPlayer:Kick("discord.gg/8zSkBgQ96V Join discord server for new script (consider yourself a furry if you dont join)")
+game.Players.LocalPlayer:Kick("discord.gg/8zSkBgQ96V Join discord server for new script (script isnt free, dont spam or ping devs for free version)")
