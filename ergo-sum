@@ -1,14 +1,10 @@
---[[
-the script wont be free again, join the discord server if you want buy it and dont spam or ping owners asking for free version
-im so sorry hiraeth for skidding your whole code and post on youtube, anyways, nobody have it anymore, i did not share it when i had the open source script
-idc if you think I'm dumb for deleting the script just bc the creator asked for, I hate skidders and I won't be one of those
-]]--
+-- boing boing
 
 setclipboard("discord.gg/8zSkBgQ96V")
 game:GetService("StarterGui"):SetCore("SendNotification",{
-    Title = "notification";
+    Title = "script is not free anymore 😭";
     Text = "discord link copied to your clipboard!";
-    Duration = 3;
+    Duration = 4;
 })
-wait(4)
-game.Players.LocalPlayer:Kick("discord.gg/8zSkBgQ96V Join discord server for new script (script is not free anymore, dont spam or ping devs for free version)")
+wait(5)
+game.Players.LocalPlayer:Kick("discord.gg/8zSkBgQ96V Join discord server to buy the script aaaaaaaaaaaaaaaaaaaaa")
