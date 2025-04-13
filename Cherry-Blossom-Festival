@@ -1,4 +1,8 @@
--- always saving xeno users making these scripts :fire:
--- sorry for putting adlinks to get this script, but i want money :fire:
-
-game.Players.LocalPlayer:Kick("script disabled for safety until i update it hahahaha. im going crazy.")
+setclipboard("https://youtu.be/hi7fuCviASY")
+game:GetService("StarterGui"):SetCore("SendNotification",{
+    Title = ".";
+    Text = "BLYAAAD";
+    Duration = 3;
+})
+wait(2)
+game.Players.LocalPlayer:Kick("new script on yt. link copied to clipboard")
