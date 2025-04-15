@@ -1,8 +1,129 @@
 setclipboard("https://youtu.be/hi7fuCviASY")
-game:GetService("StarterGui"):SetCore("SendNotification",{
-    Title = ".";
-    Text = "BLYAAAD";
-    Duration = 3;
+
+local Players = game:GetService("Players")
+local TweenService = game:GetService("TweenService")
+local LocalPlayer = Players.LocalPlayer
+local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
+
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "CustomNotificationGui"
+screenGui.Parent = PlayerGui
+screenGui.ResetOnSpawn = false
+
+local mainFrame = Instance.new("Frame")
+mainFrame.Size = UDim2.new(0, 400, 0, 200)
+mainFrame.Position = UDim2.new(0.5, -200, 0.5, -100)
+mainFrame.BackgroundTransparency = 0.1
+mainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+mainFrame.BorderSizePixel = 0
+mainFrame.Parent = screenGui
+
+local gradient = Instance.new("UIGradient")
+gradient.Color = ColorSequence.new({
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(100, 0, 255)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 255, 255))
 })
-wait(2)
-game.Players.LocalPlayer:Kick("new script on yt. link copied to clipboard")
+gradient.Rotation = 45
+gradient.Parent = mainFrame
+
+local corner = Instance.new("UICorner")
+corner.CornerRadius = UDim.new(0, 20)
+corner.Parent = mainFrame
+
+local shadow = Instance.new("ImageLabel")
+shadow.Size = UDim2.new(1, 20, 1, 20)
+shadow.Position = UDim2.new(0, -10, 0, -10)
+shadow.BackgroundTransparency = 1
+shadow.Image = "rbxassetid://1316045217" -- Imagem de sombra padrão
+shadow.ImageTransparency = 0.5
+shadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+shadow.ScaleType = Enum.ScaleType.Slice
+shadow.SliceCenter = Rect.new(10, 10, 118, 118)
+shadow.Parent = mainFrame
+shadow.ZIndex = -1
+
+local textLabel = Instance.new("TextLabel")
+textLabel.Size = UDim2.new(0.9, 0, 0.6, 0)
+textLabel.Position = UDim2.new(0.05, 0, 0.2, 0)
+textLabel.BackgroundTransparency = 1
+textLabel.Text = "New script on my YouTube channel.\nThe video link was copied to your clipboard!"
+textLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+textLabel.TextScaled = true
+textLabel.Font = Enum.Font.FredokaOne
+textLabel.TextStrokeTransparency = 0.8
+textLabel.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+textLabel.Parent = mainFrame
+
+local closeButton = Instance.new("TextButton")
+closeButton.Size = UDim2.new(0, 40, 0, 40)
+closeButton.Position = UDim2.new(1, -50, 0, 10)
+closeButton.BackgroundColor3 = Color3.fromRGB(255, 50, 50)
+closeButton.Text = "X"
+closeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+closeButton.TextScaled = true
+closeButton.Font = Enum.Font.GothamBold
+closeButton.Parent = mainFrame
+
+local buttonCorner = Instance.new("UICorner")
+buttonCorner.CornerRadius = UDim.new(0, 10)
+buttonCorner.Parent = closeButton
+
+local function animateGuiIn()
+    mainFrame.Position = UDim2.new(0.5, -200, 0.5, -300) -- Fora da tela inicialmente
+    mainFrame.BackgroundTransparency = 1
+    textLabel.TextTransparency = 1
+    closeButton.BackgroundTransparency = 1
+    closeButton.TextTransparency = 1
+
+    local tweenInfo = TweenInfo.new(0.8, Enum.EasingStyle.Back, Enum.EasingDirection.Out)
+    local tween1 = TweenService:Create(mainFrame, tweenInfo, {
+        Position = UDim2.new(0.5, -200, 0.5, -100),
+        BackgroundTransparency = 0.1
+    })
+    local tween2 = TweenService:Create(textLabel, tweenInfo, {TextTransparency = 0})
+    local tween3 = TweenService:Create(closeButton, tweenInfo, {
+        BackgroundTransparency = 0,
+        TextTransparency = 0
+    })
+
+    tween1:Play()
+    tween2:Play()
+    tween3:Play()
+end
+
+local function animateGuiOut()
+    local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.In)
+    local tween1 = TweenService:Create(mainFrame, tweenInfo, {
+        Position = UDim2.new(0.5, -200, 0.5, -300),
+        BackgroundTransparency = 1
+    })
+    local tween2 = TweenService:Create(textLabel, tweenInfo, {TextTransparency = 1})
+    local tween3 = TweenService:Create(closeButton, tweenInfo, {
+        BackgroundTransparency = 1,
+        TextTransparency = 1
+    })
+
+    tween1:Play()
+    tween2:Play()
+    tween3:Play()
+
+    tween1.Completed:Connect(function()
+        screenGui:Destroy()
+    end)
+end
+
+closeButton.MouseButton1Click:Connect(function()
+    animateGuiOut()
+end)
+
+closeButton.MouseEnter:Connect(function()
+    local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+    TweenService:Create(closeButton, tweenInfo, {BackgroundColor3 = Color3.fromRGB(255, 100, 100)}):Play()
+end)
+
+closeButton.MouseLeave:Connect(function()
+    local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+    TweenService:Create(closeButton, tweenInfo, {BackgroundColor3 = Color3.fromRGB(255, 50, 50)}):Play()
+end)
+
+animateGuiIn()
