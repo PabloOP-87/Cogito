@@ -1,4 +1,4 @@
-setclipboard("https://www.youtube.com/@PabloScripts21")
+setclipboard("https://youtu.be/AiXR8bMBzsI?si=YnOqFzWPRWRLwaqJ")
 game:GetService("StarterGui"):SetCore("SendNotification",{
     Title = ".";
     Text = "BLYAAAD";
