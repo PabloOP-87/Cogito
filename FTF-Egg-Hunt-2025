@@ -1,8 +1,0 @@
-setclipboard("https://youtu.be/AiXR8bMBzsI?si=YnOqFzWPRWRLwaqJ")
-game:GetService("StarterGui"):SetCore("SendNotification",{
-    Title = ".";
-    Text = "BLYAAAD";
-    Duration = 3;
-})
-wait(2)
-game.Players.LocalPlayer:Kick("Updated Script in my channel (same video) link copied to clipboard")
